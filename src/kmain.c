@@ -17,6 +17,12 @@
  * =====================================================================================
  */
 
+#include "io.h"
+
+#define FB_COMMAND_PORT         0x3D4 
+#define FB_DATA_PORT            0x3D5
+#define FB_HIGH_BYTE_COMMAND    14
+#define FB_LOW_BYTE_COMMAND     15
 /* 
  * fb_write_cell:
  * Writes a character with the given foreground and background to position i
@@ -33,10 +39,24 @@ void fb_write_cell(unsigned int i, char c, unsigned char fg, unsigned char bg){
 }
 
 /*
+ * fb_move_cursor:
+ * Moves the cursor of the framebuffer to the given position
+ *
+ * @param pos   The new position of the cursor
+ */
+void fb_move_cursor(unsigned short pos){
+    outb(FB_COMMAND_PORT, FB_HIGH_BYTE_COMMAND);
+    outb(FB_DATA_PORT, (( pos >> 8 ) & 0x00FF));
+    outb(FB_COMMAND_PORT, FB_LOW_BYTE_COMMAND);
+    outb(FB_DATA_PORT, pos & 0x00FF);
+}
+
+/*
  * kmain:
  * Function to be called from assembly code when boot system starts.
  * 
  */
 void kmain(){
     fb_write_cell(0, 'A', 2, 8);
+    fb_move_cursor(10);
 }
