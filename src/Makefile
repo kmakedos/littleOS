@@ -35,4 +35,4 @@ run: os.iso
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o kernel.elf os.iso bochslog.log
+	rm -rf *.o kernel.elf os.iso bochslog.log com1.out
