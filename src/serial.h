@@ -24,7 +24,6 @@
  * at different values
  */
 
-#define SERIAL_COM1_BASE    0x3F8   /*  COM1 BASE PORT */
 
 
 #define SERIAL_DATA_PORT(base)              (base)
@@ -133,7 +132,7 @@ void serial_configure_buffers(unsigned short com){
  *  dtr:    Data Terminal Ready
  *  */
 
-void serial_configure_modem(unsinged short com){
+void serial_configure_modem(unsigned short com){
     /*
      * We do not use interrupts, as we won't handle any receiving data.
      * Value 0x03 = 00000011 (RTS=1, DTR=1)
@@ -155,4 +154,44 @@ void serial_configure_modem(unsinged short com){
 int serial_is_transmit_fifo_empty(unsigned int com){
     /*  0x20 -- 0010 0000 */
     return inb(SERIAL_LINE_STATUS_PORT(com)) & 0x20;
+}
+
+/* SERIAL_RECEIVED:
+ * Returns a byte if it is received from serial line.
+ * 
+ * @return byte     The byte it was sent through serial
+ */
+
+int serial_received(unsigned short com){
+    return inb(SERIAL_LINE_STATUS_PORT(com) & 1);
+}
+
+
+/*
+ * INIT_SERIAL:
+ * Initialises serial port's baud_rate, line and modem characteristics
+ * Uses functions defined above.
+ *
+ * @param com           The com port to use (defined like #define com 03xf8)
+ * @param divisor       The divisor to divide the modem speed 115200/divisor to calc. effective speed
+ *
+ */
+void init_serial(unsigned short com, unsigned short divisor){
+     serial_configure_baud_rate(com, divisor);  
+     serial_configure_line(com);
+     serial_configure_modem(com);
+}
+
+
+
+void serial_write(unsigned short com, int data){
+    while (serial_is_transmit_fifo_empty(com)){
+            outb(com, data);
+    }
+}
+
+
+char read_serial(unsigned short com){
+    while(serial_received(com) == 0);
+    return inb(com);
 }

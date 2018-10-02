@@ -18,7 +18,9 @@
  */
 
 #include "io.h"
+#include "serial.h"
 
+#define COM1_BASE    0x3F8   /*  COM1 BASE PORT */
 /*
  * kmain:
  * Function to be called from assembly code when boot system starts.
@@ -27,4 +29,6 @@
 void kmain(){
     char buf[6] = "kostas";
     fb_write(buf, 6);
+    init_serial(COM1_BASE, 1);
+    serial_write(COM1_BASE, 'G');
 }

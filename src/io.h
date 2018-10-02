@@ -88,8 +88,8 @@ void fb_write(char *buf, unsigned int len){
 }
 
 
-void serial_write(char *buf, unsigned int len){
-
-}
+//void serial_write(char *buf, unsigned int len){
+    
+//}
 
 #endif /*  INCLUDE_IO_H  */
