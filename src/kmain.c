@@ -30,5 +30,7 @@ void kmain(){
     char buf[6] = "kostas";
     fb_write(buf, 6);
     init_serial(COM1_BASE, 1);
-    serial_write(COM1_BASE, 'G');
+    char b[7] = "012345";
+    b[6] = '\0';
+    serial_printf(COM1_BASE, b);
 }

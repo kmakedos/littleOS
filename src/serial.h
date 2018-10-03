@@ -15,7 +15,6 @@
  *
  * =====================================================================================
  */
-
 #include "io.h"
 
 /* The I/O ports 
@@ -183,15 +182,43 @@ void init_serial(unsigned short com, unsigned short divisor){
 }
 
 
-
+/*
+ * SERIAL_WRITE:
+ * Writes a byte to serial port
+ *
+ * @param com   Serial COM port to use for outgoing data
+ * @param data  Data byte to send in serial port
+ */
 void serial_write(unsigned short com, int data){
-    while (serial_is_transmit_fifo_empty(com)){
+    if (serial_is_transmit_fifo_empty(com)){
             outb(com, data);
     }
 }
 
+void serial_printf(unsigned short com, char* data){
+    while (serial_is_transmit_fifo_empty(com) && (*data != '\0')) {
+        outb(com, *data++);
+    }
+}
+
+/*
+ * READ_SERIAL:
+ * Reads a byte from serial port
+ *
+ * @param com       Serial COM port to read byte from 
+ * @return byte     Byte read
+ */
 
 char read_serial(unsigned short com){
     while(serial_received(com) == 0);
     return inb(com);
 }
+
+typedef enum Severity{
+    INFO,
+    WARN,
+    ERROR,
+    DEBUG
+}Severity;
+
+
