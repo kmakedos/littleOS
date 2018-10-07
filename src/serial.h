@@ -196,8 +196,8 @@ void serial_write(unsigned short com, int data){
 }
 
 void serial_printf(unsigned short com, char* data){
-    while (serial_is_transmit_fifo_empty(com) && (*data != '\0')) {
-        outb(com, *data++);
+    while (*data != '\0') {
+        if (serial_is_transmit_fifo_empty(com)) outb(com, *data++);
     }
 }
 
