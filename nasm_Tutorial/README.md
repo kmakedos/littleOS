@@ -167,3 +167,45 @@ Notes:
     - Source is unaffected
 
 MOV [EBX],123               ; MY_TABLE[1] = 123
+
+
+### Allocating Storage Space for Initialized Data
+Syntax for storage allocation for initialized data is:
+```
+[variable-name]     define-directive    initial-value   [,initial-value]
+```
+Define directives are:
+
+Directive       Purpose             Storage Space
+----------------------------------------------------
+DB              Define Byte         allocates 1 byte
+DW              Define Word         allocates 2 bytes
+DD              Define DoubleWord   allocates 4 bytes
+DQ              Define QuadWord     allocates 8 bytes
+DT              Define Ten Bytes    allocates 10 bytes
+
+### Allocating Storage Space for Uninitialized Data
+Syntax for storage allocation for uninitialized data is similar:
+```
+[variable-name]     define-directive    initial-value   [,initial-value]
+```
+Define directives are:
+
+Directive       Purpose             Storage Space
+----------------------------------------------------
+RESB              Define Byte         allocates 1 byte
+RESW              Define Word         allocates 2 bytes
+RESD              Define DoubleWord   allocates 4 bytes
+RESQ              Define QuadWord     allocates 8 bytes
+REST              Define Ten Bytes    allocates 10 bytes
+
+
+### Multiple Initializations
+
+Array named matrix with 10 values zeroed:
+
+matrix  TIMES 10    dw 0
+
+
+
+
