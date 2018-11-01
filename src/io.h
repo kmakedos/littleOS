@@ -87,4 +87,12 @@ void fb_write(char *buf, unsigned int len){
     }
 }
 
+struct gdt{
+    unsigned int address;
+    unsigned short size;
+} __attribute__((packed));
+
+typedef struct gdt *gdp;
+void load_gdt(gdp gdt_address);
+
 #endif /*  INCLUDE_IO_H  */

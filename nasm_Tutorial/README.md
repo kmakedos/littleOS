@@ -207,5 +207,19 @@ Array named matrix with 10 values zeroed:
 matrix  TIMES 10    dw 0
 
 
+### Arithmetic instructions
 
+#### INC,DEC
+Increase or Decrease operand
+
+#### ADD,SUB
+Add or subtract between
+- Register - register
+- Memory - register
+- Resigter - memory
+- Register - constant
+- Memory - constant
+No memory-memory operands can be added or subtracted
+
+#### 
 

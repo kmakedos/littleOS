@@ -3,7 +3,7 @@ LDFLAGS = -T link.ld
 AS = nasm
 ASFLAGS = -f elf64 -g
 
-all: hello_world registers_stars read_keyboard change_name
+all: hello_world registers_stars read_keyboard change_name add_two_nums
 
 
 hello_world: hello_world.o
@@ -19,8 +19,13 @@ read_keyboard: read_keyboard.o
 registers_stars: registers_stars.o
 	ld $(LDFLAGS) registers_stars.o -o registers_stars
 
+add_two_nums: add_two_nums.o
+	ld $(LDFLAGS) add_two_nums.o -o add_two_nums
+
+
+
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
 clean:
-	rm -rf *.o hello_world registers_stars read_keyboard change_name
+	rm -rf *.o hello_world registers_stars read_keyboard change_name add_two_nums
