@@ -104,7 +104,8 @@ Steps to use a Linux System Call:
 - Call relevant interrupt (80h)
 - Result is usually in EAX
 
-Consecutive arguments can be stored in EBX,ECX,EDX,ESI,EDI,EBP
+Consecutive arguments can be stored in EBX,ECX,EDX,ESI,EDI,EBP.
+
 All system calls are listed in /usr/include/asm/unistd.h and their numbers.
 
 
