@@ -1,3 +1,5 @@
 kernel.elf
 *.o
 nasm_Tutorial/bin
+.idea
+*.bin
