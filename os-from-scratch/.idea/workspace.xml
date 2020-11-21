@@ -18,25 +18,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87bdafdb-c1fd-4d54-9612-88f569df5fc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/06-code-organize/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-code-organize/boot/bootsect.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-code-organize/boot/kernel_entry.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/06-code-organize/kernel/kernel.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/07-video-ports/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/07-video-ports/boot/bootsect.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/07-video-ports/boot/kernel_entry.asm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/07-video-ports/drivers/ports.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/07-video-ports/drivers/ports.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/07-video-ports/kernel/kernel.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/32-bit-print.asm" beforeDir="false" afterPath="$PROJECT_DIR$/common/32-bit-print.asm" afterDir="false" />
-    </list>
+    <list default="true" id="87bdafdb-c1fd-4d54-9612-88f569df5fc9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ClangdSettings">
+    <option name="clangTidyViaClangd" value="false" />
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
@@ -83,6 +72,8 @@
       <updated>1602536600154</updated>
       <workItem from="1602536601303" duration="1621000" />
       <workItem from="1602617903506" duration="6191000" />
+      <workItem from="1602794218119" duration="2786000" />
+      <workItem from="1602881438511" duration="1315000" />
     </task>
     <servers />
   </component>
@@ -99,5 +90,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
