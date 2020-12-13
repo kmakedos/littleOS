@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+sudo apt-get install xorriso
 . ./build.sh
 
 mkdir -p isodir
